@@ -40,8 +40,6 @@ import datetime
 
 def insert_data(request):
     
-    
-    
     url = "http://100002.pythonanywhere.com/"
 
     payload = json.dumps({
@@ -73,9 +71,22 @@ def insert_data(request):
     data_dic = json.loads(payload)
 
     first_name = data_dic['field']['profile']['first_name']
+    last_name = data_dic['field']['profile']['last_name']
+    phone = data_dic['field']['profile']['phone number']
+    email_address = data_dic['field']['profile']['email']
+    address = data_dic['field']['profile']['address']
+    pincode = data_dic['field']['profile']['pincode']
+    location = data_dic['field']['profile']['location']
 
     context = {
         'first_name': first_name, 
+        'last_name': last_name,
+        'phone number': phone,
+        'email_address': email_address,
+        'address': address,
+        'pincode': pincode,
+        'location': location
+
     }
 
     headers = {
