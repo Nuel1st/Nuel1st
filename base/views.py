@@ -1,45 +1,52 @@
 from django.shortcuts import render
+from django.http import HttpResponse
+from django.views import View
+
+class FirstnameView(View):
+    def get(self, request):
+        return HttpResponse()
+
+class LastnameView(View):
+    def get(self, request):
+        return HttpResponse()
+
+class PhoneNumberView(View):
+    def get(self, request):
+        return HttpResponse()
+
+class EmailAddressView(View):
+    def get(self, request):
+        return HttpResponse()
+
+class AddressView(View):
+    def get(self, request):
+        return HttpResponse()
+
+class PincodeView(View):
+    def get(self, request):
+        return HttpResponse()
+
+class LocationView(View):
+    def get(self, request):
+        return HttpResponse()
+
+from django.shortcuts import render
 import requests
 import json
 import datetime
-# from pymongo import MongoClient
+from django.http import HttpResponse, JsonResponse
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
-# def get_event_id():
-#     dd = datetime.datetime.now()
-#     time = dd.strftime("%d:%m:%Y,%H:%M:%S")
-#     url = "https://100003.pythonanywhere.com/event_creation"
-
-#     data = {
-#         "platformcode":"FB" ,
-#         "citycode":"101",
-#         "daycode":"0",
-#         "dbcode":"pfm" ,
-#         "ip_address":"192.168.0.41",
-#         "login_id":"lav",
-#         "session_id":"new",
-#         "processcode":"1",
-#         "regional_time":time,
-#         "dowell_time":time,
-#         "location":"22446576",
-#         "objectcode":"1",
-#         "instancecode":"100051",
-#         "context":"afdafa ",
-#         "document_id":"3004",
-#         "rules":"some rules",
-#         "status":"work",
-#         "data_type": "learn",
-#         "purpose_of_usage": "add",
-#         "colour":"color value",
-#         "hashtags":"hash tag alue",
-#         "mentions":"mentions value",
-#         "emojis":"emojis",
-
-#     }
-#     r = requests.post(url, json=data)
-#     return r.json()["eventId"]
+@method_decorator(csrf_exempt, name='dispatch')
+class serverReport(APIView):
+    def get(self, request):
+        return Response({"status": "Server is working."}, status=status.HTTP_200_OK)
 
 def insert_data(request):
-    
     url = "http://100002.pythonanywhere.com/"
 
     payload = json.dumps({
@@ -51,7 +58,6 @@ def insert_data(request):
         "function_ID": "ABCDE",
         "command": "insert",
         "field": {
-            # "eventId" : get_event_id(),
             "profile": {
                 "first_name": "First Name",
                 "last_name": "Last Name",
@@ -81,24 +87,15 @@ def insert_data(request):
     context = {
         'first_name': first_name, 
         'last_name': last_name,
-        'phone number': phone,
+        'phone_number': phone,
         'email_address': email_address,
         'address': address,
         'pincode': pincode,
         'location': location
-
     }
 
     headers = {
         'Content-Type': 'application/json'
     }
 
-    # response = requests.request("POST", url, headers=headers, data=payload,)
-
     return render(request, 'insert_data.html', context=context)
-
-    # Store the response in the MongoDB collection
-    # collection.insert_one({"response": response.text})
-
-   
- 
