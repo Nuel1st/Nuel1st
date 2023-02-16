@@ -86,10 +86,11 @@ DATABASES = {
 }
 
 # DATABASES = {
-#     'default': {
-#         'ENGINE': 'djongo'
-#     }
-# }
+#       'default': {
+#           'ENGINE': 'djongo',
+#           'NAME': 'your-database-name',
+#       }
+#   }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators

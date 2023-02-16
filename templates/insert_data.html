@@ -3,15 +3,14 @@
         <title>Insert Data</title>
     </head>
     <body>
+        
+        <form action = "{% url 'base:insert_data' %}" method = "post">
+            {% csrf_token %}
+            {{form }}
+            <input type="submit" value=Submit>
+        </form>
         {% block content %}
-        <h1>Data Inserted Successfully</h1>
-        <p>Your first name : {{first_name}}</p>
-        <p>Your last name : {{last_name}}</p>
-        <p>Your phone number: {{phone}}</p>
-        <p>Your email : {{email_address}}</p>
-        <p>Your address : {{address}}</p>
-        <p>Your pincode : {{pincode}}</p>
-        <p>Your location : {{location}}</p>
+        <h1>First Name : {{first_name}}</h1>
         {% endblock %}
     </body>
 </html>
