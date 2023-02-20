@@ -89,6 +89,9 @@ def insert_data(request):
 
         data_dic = json.loads(payload)
         f = data_dic['field']['profile']['first_name']
+
+        response = requests.request("POST",url,headers=headers,data=payload)
+        print(response.text)
         return render(request, "insert_data.html",{'first_name':f})            
     else:
         context ={} 
