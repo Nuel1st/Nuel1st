@@ -1,5 +1,5 @@
 - 👋 Hi, I’m @Nuel1st
-- 👀 I’m interested in python
+- 👀 I’m interested in python,Golang,Java and NodeJs
 - 🌱 I’m currently working as Python/django Dev
 - 💞️ I’m looking to collaborate on any platform that will help me grow
 - 📫 How to reach me via my WhatsApp line: 08139186142 or LinkedIn: https://www.linkedin.com/in/emmanuel-ugwu-b58b80223 or via My Email: Nnamdiemmanuel01@gmail.com
